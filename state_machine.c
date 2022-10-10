@@ -9,20 +9,16 @@ STATE machine(STATE s, SET_UA type, unsigned char input){
     
     switch(s){
         case START:
-            if(input == FLAG){
+            if(input == FLAG)
                 state = FLAG_RCV;
-            }
             break;
         case FLAG_RCV:
-            if(input == FLAG){
+            if(input == FLAG)
                 state = FLAG_RCV;
-            }
-            else if(input == ESC){  
-                state = START; 
-            }
-            else if(input == A){
+            else if(input == A)
                 state = A_RCV;
-            }
+            else 
+                state = START; 
             break;
         case A_RCV:
             if(type == SET){
@@ -33,12 +29,10 @@ STATE machine(STATE s, SET_UA type, unsigned char input){
                 if(input == C_UA)
                     state = C_RCV;
             }
-            if(input == FLAG){
+            if(input == FLAG)
                 state = FLAG_RCV;
-            }
-            else if(input == ESC){  
+            else
                 state = START; 
-            }
             break;
         case C_RCV:
             if(type == SET){
@@ -49,15 +43,20 @@ STATE machine(STATE s, SET_UA type, unsigned char input){
                 if(input == A^C_UA) 
                     state = BCC_OK;
             }
-            if(input == FLAG){
-                state = FLAG_RCV;
-            }
-            else if(input == ESC){  
+            if(input == FLAG)
+                state = FLAG_RCV;     
+            else
                 state = START; 
-            }
             break;
         case BCC_OK:
+            if(input == FLAG)
+                state = STOP;
+            else 
+                state = START; 
+            break;
         case STOP:
+            state = STOP;
+            break;
     }
     
     return state; 
