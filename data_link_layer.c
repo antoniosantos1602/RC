@@ -1,6 +1,14 @@
 #define PORTS0 "dev/ttyS0"
 #define PORTS1 "dev/ttyS1"
 
+int llopenReceiv(int port){
+
+}
+
+int llopenTransmit(){
+    
+}
+
 int llopen(int port, int type){
     char *port_name;
 
@@ -16,7 +24,7 @@ int llopen(int port, int type){
         return -1;
     }
 
-    // open file
+    // open port
     int fd = open(port_name);
 
     if(fd < 0){
@@ -28,7 +36,7 @@ int llopen(int port, int type){
 }
 
 int llwrite(int fd, char * buffer, int length){
-
+    
 }
 
 int llread(int fd, char * buffer){
