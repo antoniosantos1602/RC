@@ -1,5 +1,5 @@
-#define STATE_MACHINE_H
 #ifndef STATE_MACHINE_H 
+#define STATE_MACHINE_H
 
 typedef enum{
     START,
@@ -8,12 +8,12 @@ typedef enum{
     C_RCV,
     BCC_OK,
     STOP
-}STATE
+}STATE;
 
 typedef enum{
     SET,
     UA
-}SET_UA
+}SET_UA;
 
 STATE machine(STATE s, SET_UA type, unsigned char input);
  
