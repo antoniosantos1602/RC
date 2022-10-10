@@ -14,4 +14,7 @@
 #define C_SET 0x03
 #define C_UA 0x07
 
+#define PORTS0 "dev/ttyS0"
+#define PORTS1 "dev/ttyS1"
+
 #endif
