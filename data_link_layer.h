@@ -27,3 +27,5 @@ int llopenReceiv(int fd);
 int llopenTransmitt(int fd);
 
 int llopen(int port, int type);
+
+int llwrite(int fd, char * buffer, int length);
