@@ -9,25 +9,18 @@
 
 #include "data_link_layer.h"
 
+// TODO
+// char sender; //trasmitter or receiver
 
-int llopenReceiv(int fd){
-    char neededB[1];
-    neededB[0] = SET;
-    
-    //code case it fails ---- return -1
-
-    printf("Frame received!\n");
-
-    // code case it fails ------- return -1
-
-}
-
-int llopenTransmitt(int fd){
-
-}
-
-int llopen(int port, int type){
-    char *port_name;
+int llopen(int port, char *a){
+    /*if(strcmp(a, "RECEIVER"))
+        sender = RECEIVER;
+    else if(strcmp(a, "TRANSMITTER"))
+        sender = TRANSMITTER;
+    else {
+        printf("Invalid sender!\n");
+        return -1;
+    }*/
 
     //choose port 
     if(port == 0){
@@ -48,6 +41,8 @@ int llopen(int port, int type){
         printf("Couldn't open port!\n'");
         return -1;
     }
+
+    // process state machine here -> cycle(?)
 
     return fd;
 }
