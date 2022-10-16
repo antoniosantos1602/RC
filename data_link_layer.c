@@ -11,6 +11,14 @@
 
 
 int llopenReceiv(int fd){
+    char neededB[1];
+    neededB[0] = SET;
+    
+    //code case it fails ---- return -1
+
+    printf("Frame received!\n");
+
+    // code case it fails ------- return -1
 
 }
 
